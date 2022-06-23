@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('action', 16);
             $table->text('old_value');
             $table->text('new_value');
+            $table->dateTime('timestamp');
         });
     }
 

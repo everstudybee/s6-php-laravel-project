@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('surname', 64);
             $table->String('specialization', 64);
             $table->string('description', 128);
-            $table->text('notes')->nullable();
+            $table->string('photo', 128);
             $table->boolean('is_active');
         });
     }
