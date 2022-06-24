@@ -1,4 +1,5 @@
-import './bootstrap';
+require ('./bootstrap');
+require('./materialize');
 
 import Alpine from 'alpinejs';
 

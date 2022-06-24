@@ -16,5 +16,11 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
         require('autoprefixer'),
     ])
+    .postCss('resources/css/materialize.css', 'public/css', [
+        require('autoprefixer'),
+    ])
+    .postCss('resources/css/style.css', 'public/css', [
+        require('autoprefixer'),
+    ])
     .browserSync('127.0.0.1:8000')
     .sourceMaps();

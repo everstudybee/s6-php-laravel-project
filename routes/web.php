@@ -1,5 +1,6 @@
 <?php
 
+    use App\Http\Controllers\DoctorsController;
     use Illuminate\Support\Facades\Route;
 
     /*
@@ -17,6 +18,10 @@
     {
         return view('index');
     });
+
+    Route::get('/doctors', [DoctorsController::class, 'index']);
+
+
 
     Route::get('/dashboard', function ()
     {
