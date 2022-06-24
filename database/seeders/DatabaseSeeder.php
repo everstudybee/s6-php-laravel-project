@@ -21,7 +21,7 @@
                     'surname' => 'Parker',
                     'specialization' => 'Heart Sergeon',
                     'description' => 'You can relay on our amazing features list and also our customer services will be great experience.',
-                    'photo' => 'img/t1.jpg',
+                    'photo' => '/img/t1.jpg',
                     'is_active' => true,
                 ],
                 [
@@ -29,7 +29,7 @@
                     'surname' => 'D’Souza',
                     'specialization' => 'Family Physician',
                     'description' => 'A great specialist in his field. Come for a consultation and check your health. Don not hesitate.',
-                    'photo' => 'img/t2.jpg',
+                    'photo' => '/img/t2.jpg',
                     'is_active' => true,
                 ],
                 [
@@ -37,7 +37,7 @@
                     'surname' => 'Doe',
                     'specialization' => 'Cancer Care Specialist',
                     'description' => 'Don not let the disease develop. The tests will help you check your health. It is very important.',
-                    'photo' => 'img/t3.jpg',
+                    'photo' => '/img/t3.jpg',
                     'is_active' => true,
                 ],
                 [
@@ -45,7 +45,7 @@
                     'surname' => 'Birt',
                     'specialization' => 'General Care',
                     'description' => 'I will check your health and if there are any problems, I will prepare appropriate recommendations.',
-                    'photo' => 'img/t4.jpg',
+                    'photo' => '/img/t4.jpg',
                     'is_active' => true,
                 ],
             ]);
