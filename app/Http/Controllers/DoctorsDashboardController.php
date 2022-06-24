@@ -5,7 +5,7 @@
     use App\Models\Doctors;
     use Illuminate\View\View;
 
-    class DoctorsController extends Controller
+    class DoctorsDashboardController extends Controller
     {
         public function index(): View
         {

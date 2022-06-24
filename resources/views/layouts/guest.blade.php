@@ -20,5 +20,6 @@
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
+    Co to jest guest
     </body>
 </html>
