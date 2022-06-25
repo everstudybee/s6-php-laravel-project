@@ -12,14 +12,14 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m6 l6">
-                <a href="/doctors">
+                <a href="/doctors/">
                     <div class="card-panel hoverable center">
                         <h5>All doctors</h5>
                     </div>
                 </a>
             </div>
             <div class="col s12 m6 l6">
-                <a href="/doctors/search">
+                <a href="/doctors/search/">
                     <div class="card-panel hoverable center">
                         <h5>Search doctor</h5>
                     </div>

@@ -1,69 +1,59 @@
-@extends('main', ['title'=>'Nowy post'])
+@section('style')
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen,projection"/>
+@endsection
 
-@include('doctors.menu')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Edit doctor\'s data') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 30px">
         <div class="row">
-            <form class="col s12 validator-submit" method="post" action="/posts/create">
-                {{-- zabezpieczenie przed Cross-site request forgeries --}}
+            <form class="col s12" method="post" action="/dashboard/doctors/create/">
                 @csrf
-                <div class="input-field col s4">
-                    <i class="material-icons prefix">input</i>
-                    {{-- clasa validatro-required jest potrzebna do wywoływania walidacji z pliku validator.js --}}
-                    <input id="tytul" type="text" name="Title" class="validate validator-required">
-                    <label for="tytul">Tytuł</label>
-                    <span class="helper-text" id="tytul-helper"></span>
-                </div>
-                <div class="input-field col s4">
-                    <i class="material-icons prefix">insert_link</i>
-                    <input id="link" type="text" name="Link" class="validate validator-required">
-                    <label for="link">Link</label>
-                    <span class="helper-text" id="link-helper"></span>
-                </div>
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea validate validator-required" name="ShortDescription"></textarea>
-                    <label for="textarea1">Krótki opis</label>
-                    <span class="helper-text" id="textarea1-helper"></span>
-                </div>
-                <div class="input-field col s12">
-                    <textarea id="textarea2" class="materialize-textarea validate validator-required" name="ContentHTML"></textarea>
-                    <label for="textarea2">Treść listu</label>
-                    <span class="helper-text" id="textarea2-helper"></span>
-                </div>
-                <div class="input-field col s12">
-                    <textarea id="textarea3" class="materialize-textarea" name="MetaDescription"></textarea>
-                    <label for="textarea3">Opis meta</label>
-                    <span class="helper-text" id="textarea3-helper"></span>
-                </div>
-                <div class="input-field col s12">
-                    <textarea id="textarea4" class="materialize-textarea" name="MetaTags"></textarea>
-                    <label for="textarea4">Tagi meta</label>
-                    <span class="helper-text" id="textarea4-helper"></span>
-                </div>
-                <div class="input-field col s12">
-                    <textarea id="textarea5" class="materialize-textarea" name="Notes"></textarea>
-                    <label for="textarea5">Notes</label>
-                    <span class="helper-text" id="textarea5-helper"></span>
-                </div>
-                <div class="input col s12">
-                    <label>
-                        <input type="checkbox" name="is-public" class="filled-in"/>
-                        <span>Czy opublikowany</span>
-                    </label>
-                </div>
-                <div class="col s12" style="margin-top: 20px">
-                    <div class="submit-field input-field">
-                        <button class="btn waves-effect waves-light" type="submit">Dodaj
-                            <i class="material-icons right">add</i>
-                        </button>
+                <div class="col s6">
+                    <div class="input-field col s12">
+                        <input id="name" type="text" name="name" class="validate validator-required">
+                        <label for="name">Name</label>
+                        <span class="helper-text">
+
+                        </span>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="surname" type="text" name="surname" class="validate validator-required">
+                        <label for="surname">Surname</label>
+                        <span class="helper-text" id="surname-helper"></span>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="specialization" type="text" name="specialization" class="validate validator-required">
+                        <label for="specialization">Specialization</label>
+                        <span class="helper-text" id="specialization-helper"></span>
                     </div>
                 </div>
+                <div class="col s6 align-right">
+                    <img src="/images/default-photo.png" alt="doctor" style="border: 1px solid lightgray; margin: auto; width: 284px;">
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea validate validator-required" name="description"></textarea>
+                    <label for="textarea1">Description (max. 128 characters)</label>
+                    <span class="helper-text" id="textarea1-helper"></span>
+                </div>
+                <div class="col s12">
+                    <button class="btn waves-effect waves-light" type="submit">Save 💾
+                    </button>
+                </div>
+                @if ($errors->any())
+                    <div class="col s 12 alert alert-danger" style="margin-top: 20px; color:red">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </form>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    <script src="/js/validator.js"></script>
-@endsection
+</x-app-layout>

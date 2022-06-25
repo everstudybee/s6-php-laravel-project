@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @yield('style')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -29,6 +30,9 @@
 
     <!-- Page Content -->
     @yield('content')
- </div>
+    <main>
+        {{ $slot }}
+    </main>
+</div>
 </body>
 </html>

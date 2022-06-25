@@ -1,22 +1,30 @@
-@extends('main' , ['title'=>'Usunięte posty'])
+@section('style')
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen,projection"/>
+@endsection
 
-@include('doctors.menu')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Deleted doctors') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 30px">
         <div class="row">
-            @foreach($posts as $post)
-                <div class="col s12 m6 l6">
+            @foreach($doctors as $doctor)
+                <div class="col s12 m4">
                     <div class="card">
+                        <div class="card-image">
+                            <img src="{{$doctor->photo}}" alt="doctor">
+                        </div>
                         <div class="card-content">
-                            <span class="card-title">{{$post->Title}}</span>
-                            <blockquote>{{$post->ShortDescription}}</blockquote>
-                            <a href="{{$post->Link}}">{{$post->Title}}</a>
-                            <p>{!! $post->ContentHTML !!}</p>
+                            <span class="card-title">Dr {{$doctor->name}} {{$doctor->surname}}</span>
+                            <h6 class="blue-text">{!!$doctor->specialization!!}</h6>
+                            <p>{!!$doctor->description!!}</p>
                         </div>
                         <div class="card-action">
-                            <a href="/posts/undelete/{{$post->Id}}" class="btn-floating btn-small waves-effect waves-teal red">
-                                <i class="material-icons">reply</i>
+                            <a href="/dashboard/doctors/undelete/{{$doctor->id}}" class="btn-floating btn-small waves-effect waves-teal red">
+                                ♻️
                             </a>
                         </div>
                     </div>
@@ -24,4 +32,4 @@
             @endforeach
         </div>
     </div>
-@endsection
+</x-app-layout>
